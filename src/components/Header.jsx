@@ -14,14 +14,14 @@ const Header = () => {
       <div>
         <img width="30" height="30" src={cw} alt="" />
       </div>
-      <div onClick={(e) => navigate("/home")}>{"<Sinan's/> blog"}</div>
+      <div onClick={()=>navigate("/home")}>{"<Sinan's/> blog"}</div>
       <div className={show ? "open":"close"} onClick={(e)=>setShow(!show)}>
         Profil Logo
         <div className="sub-menu">
           <ul>
             <li>Profile</li>
-            <li>New</li>
-            <li>Logout</li>
+            <li onClick={()=>navigate("/new-blog")}>New</li>
+            <li onClick={()=>navigate("/login")}>Logout</li>
           </ul>
         </div>
       </div>

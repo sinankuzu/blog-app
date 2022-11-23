@@ -8,7 +8,7 @@ const Login = () => {
     }
   return (
     <div className="wrapper">
-      <form className="login-container" action="">
+      <div className="login-container">
         <div className="login-first">
           <img src={blog} alt="" />
           <div className="login-header">
@@ -21,7 +21,7 @@ const Login = () => {
         <input type="password" onChange={(e) => e.target.value} />
         <div className="button" onClick={submitle}>Login</div>
         <div className="button">Sign-in with google</div>
-      </form>
+      </div>
     </div>
   );
 }
