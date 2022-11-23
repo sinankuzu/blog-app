@@ -1,0 +1,82 @@
+body {
+  background-image: url(https://picsum.photos/2560/1440);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.wrapper {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  background-color: white;
+  width: 400px;
+  height: 600px;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  padding: 20px 30px;
+  
+}
+
+label {
+  align-self: center;
+}
+
+input {
+  padding: 20px;
+  height: 30px;
+  border: 1px solid rgb(0, 0, 0, 0.3);
+  border-radius: 5px;
+  align-self: start;
+  outline: none;
+}
+
+.login-first {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: flex-end;
+}
+
+h1 {
+  text-align: center;
+  padding: 10px;
+  z-index: 2;
+  background-color: white;
+}
+
+.login-header {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 200px;
+}
+
+.login-header::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: #000;
+  top: 50%;
+  position: absolute;
+  z-index: 1;
+}
+
+.button{
+    background-color: #5dbea3;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+}
+
+
