@@ -1,5 +1,6 @@
 import './App.css';
 import Login from './pages/Login';
+import Router from './Router';
 
 
 
@@ -8,7 +9,7 @@ import Login from './pages/Login';
 function App() {
   return (
     <div>
-      <Login/>
+      <Router/>
     </div>
   );
 }
