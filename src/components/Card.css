@@ -7,13 +7,34 @@
 
 .card{
     background-color: white;
-    width: 300px;
+    width: 400px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    overflow: hidden;
-    height: 300px;
+    overflow:hidden;
+    height: 330px;
+    position: relative;
     
+}
+
+.text-content{
+    width: 100%;
+    position: absolute;
+    bottom: 33px;
+    background-color: red;
+    padding: 10px;
+    height: 150px;
+             
+        
+
+}
+
+
+.card p{
+  white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
 }
 
 
