@@ -16,7 +16,7 @@ export const addContent = (element)=>{
 
 export const useContent = ()=>{
     const [contentList, setContentList] = useState()
-
+    const [isLoading, setIsLoading] = useState(true)
     useEffect(()=>{
         const database = getDatabase(firebase);
         const contentRef = ref(database, "content/");
@@ -30,9 +30,11 @@ export const useContent = ()=>{
             }
 
             setContentList(contentArray);
+            setIsLoading(false)
 
         })
 
-    },[])
+    },[]);
+    return {contentList, isLoading};
 }
 
