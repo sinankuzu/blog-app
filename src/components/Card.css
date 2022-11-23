@@ -1,0 +1,16 @@
+
+.card-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+}
+
+.card{
+    background-color: white;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+
+}

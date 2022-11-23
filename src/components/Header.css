@@ -1,47 +1,43 @@
-.open{
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-    
+.header-container {
+  display: flex;
+  color: white;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: rgb(10, 86, 86);
 }
 
-.close{
-    overflow: visible;
-    cursor: pointer;
+.header-container .sub-menu {
+  color: black;
+  position: absolute;
+  right: 2px;
+  top: 52px;
+  background-color: white;
+  padding: 15px;
+  border-radius: 5px;
 }
 
-li{
-    list-style: none;
+.sub-menu li {
+  padding: 10px;
 }
 
-
-.header-container{
-    display: flex;
-    color: white;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    background-color: rgb(10, 86, 86);
+.sub-menu li:hover {
+  background-color: rgb(209, 208, 208);
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-.header-container .sub-menu{
-    
-    color: black;
-    position: absolute;
-   right:2px;
-   top: 52px;
-   background-color: white;
-   padding: 15px;
-   border-radius: 5px;
+.open {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
 }
 
-.sub-menu li{
-   padding: 10px; 
+.close {
+  overflow: visible;
+  cursor: pointer;
 }
 
-.sub-menu li:hover{
-    background-color: rgb(209, 208, 208);
-    border-radius: 5px;
-    cursor: pointer;
+li {
+  list-style: none;
 }
-
