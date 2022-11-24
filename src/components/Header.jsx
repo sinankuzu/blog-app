@@ -21,7 +21,7 @@ const Header = () => {
           <ul>
             <li>Profile</li>
             <li onClick={()=>navigate("/new-blog")}>New</li>
-            <li onClick={()=>navigate("/login")}>Logout</li>
+            <li onClick={()=>navigate("/login")}>Login/Register</li>
           </ul>
         </div>
       </div>

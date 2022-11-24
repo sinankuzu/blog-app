@@ -4,6 +4,7 @@ import Header from './components/Header';
 import Home from './pages/Home';
 import Login from "./pages/Login"
 import NewBlog from './pages/NewBlog';
+import Register from "./pages/Register";
 const Router = () => {
   return (
   <BrowserRouter>
@@ -12,6 +13,7 @@ const Router = () => {
         <Route path="/login" element={<Login/>}/>
         <Route path="/home" element={<Home/>}/>
         <Route path="/new-blog" element={<NewBlog/>}/>
+        <Route path="/register" element={<Register/>}/>
     </Routes>
   </BrowserRouter>
   )
