@@ -1,12 +1,13 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import cw from "../assets/cw.jpeg"
 import {useNavigate} from "react-router-dom"
 import "./Header.css"
-
+import {userInfo} from "../App"
+import {logout} from "../utils/Function" 
 
 const Header = () => {
   const [show, setShow] = useState(true)
-
+  const {myUser} = useContext(userInfo)
     const navigate = useNavigate()
 
   return (
@@ -21,7 +22,7 @@ const Header = () => {
           <ul>
             <li>Profile</li>
             <li onClick={()=>navigate("/new-blog")}>New</li>
-            <li onClick={()=>navigate("/login")}>Login/Register</li>
+            {myUser ? <li onClick={logout}>Logout</li> : <li onClick={()=>navigate("/login")}>Login/Register</li>}
           </ul>
         </div>
       </div>

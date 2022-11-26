@@ -4,7 +4,7 @@ import { useContent } from "../utils/Function";
 const Card = () => {
   useContent();
   const { contentList, isLoading, setIsLoading } = useContent();
-  console.log(contentList);
+  
 
 
   return (
@@ -12,7 +12,7 @@ const Card = () => {
        {isLoading ? <div>Loading</div>:contentList.map((element) => {
 
         return (
-          <div className="card">
+          <div key={element.id} className="card">
             <img width={400} src={element.image} alt="" />
             <div className="text-content">
               <h3>{element.title}</h3>

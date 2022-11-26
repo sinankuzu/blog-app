@@ -1,5 +1,6 @@
-import firebase from "../firebaseConfig";
+import firebase, {auth} from "../firebaseConfig";
 import { getDatabase, ref, set, push, onValue } from "firebase/database";
+import {signOut, getAuth} from "firebase/auth";
 import { useEffect, useState } from "react";
 export const addContent = (element) => {
   const database = getDatabase(firebase);
@@ -33,6 +34,11 @@ export const useContent = () => {
     });
   }, []);
   return { contentList, isLoading };
+};
+
+
+export const logout = async () => {
+  await signOut(auth);
 };
 
 

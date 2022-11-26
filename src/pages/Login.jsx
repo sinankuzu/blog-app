@@ -8,8 +8,6 @@ import { userInfo } from "../App";
 const Login = () => {
 
 const { checkUser } = useContext(userInfo);
-
-
   const wrongPassword = useRef("");
   const wrongEmail = useRef("");
   const disabledUser = useRef("");
@@ -20,7 +18,7 @@ const { checkUser } = useContext(userInfo);
     "Firebase: Access to this account has been temporarily disabled due to many failed login attempts. You can immediately restore it by resetting your password or you can try again later. (auth/too-many-requests).";
   const errorEmail = "Firebase: Error (auth/user-not-found).";
   const errorPassword = "Firebase: Error (auth/wrong-password)."
-  const mylogin = async () => {
+  const login = async () => {
     try {
       const user = await signInWithEmailAndPassword(
         auth,
@@ -42,12 +40,8 @@ const { checkUser } = useContext(userInfo);
     }
   };
 
- 
-  const logout = async () => {
-    await signOut(auth);
-  };
 
-
+// APP.JS E DEN CONTEXT ILE CEKILDI
   // const checkUser = () => {
   //     const auth = getAuth();
   //     const user = auth.currentUser;
@@ -55,7 +49,7 @@ const { checkUser } = useContext(userInfo);
   // }
 
     const submitle = async () => {
-    await mylogin();
+    await login();
 
     if (wrongEmail.current !== "") {
       console.log("email sikintili");
@@ -74,6 +68,8 @@ const { checkUser } = useContext(userInfo);
       }
       checkUser()
   };
+
+
   return (
     <div className="wrapper">
       <div className="login-container">
@@ -96,7 +92,7 @@ const { checkUser } = useContext(userInfo);
         <div onClick={signInWithGoogle} className="button">
           Sign-in with google
         </div>
-        <button onClick={logout}>logout</button>
+        
       </div>
     </div>
   );
