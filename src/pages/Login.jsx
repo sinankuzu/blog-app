@@ -1,20 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
 import blog from "../assets/blok.png";
 import { signInWithGoogle, auth } from "../firebaseConfig";
-import {
-  signInWithEmailAndPassword,
-  signOut,
-} from "firebase/auth";
+import { signInWithEmailAndPassword, signOut } from "firebase/auth";
 const Login = () => {
-
-  const [wrongPasword, setWrongPassword] = useState()
+  const wrongPassword = useRef("");
+  const wrongEmail = useRef("");
   const navigate = useNavigate();
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
 
-  const login = async () => {
+  const mylogin = async () => {
     try {
       const user = await signInWithEmailAndPassword(
         auth,
@@ -22,19 +19,37 @@ const Login = () => {
         loginPassword
       );
     } catch (error) {
-      setWrongPassword(error.message)
-      console.log(error.message, "burasi");
+      console.log(error.message, "icersi 1");
+      if (error.message === `Firebase: Error (auth/user-not-found).`) {
+        // setWrongEmail(error.message);
+        wrongEmail.current = error.message;
+      } else if (error.message === `Firebase: Error (auth/wrong-password).`) {
+        //  setWrongPassword(error.message);
+        wrongPassword.current = error.message;
+      } else {
+        console.log("calismadi");
+      }
+      //  console.log(wrongEmail,"icerisi 2",wrongPassword)
+      //  console.log(we, "icerisi 2", wp);
     }
+
+    // console.log(wrongEmail,"boslu1", wrongPassword);
   };
+
   const logout = async () => {
     await signOut(auth);
   };
 
-  const submitle = () => {
-    if(wrongPasword !==""){
-      
+  const submitle = async () => {
+    await mylogin();
+    // console.log(wrongEmail, "boslu2", wrongPassword);
+
+    if (wrongEmail.current !== "") {
+      console.log("email sikintili");
+    } else if (wrongPassword.current !== "") {
+      console.log("sifre sikintili");
     }
-    login();
+    // console.log(we, "icerisi 2", wp);
 
     // navigate("/home");
   };
@@ -59,7 +74,7 @@ const Login = () => {
         </div>
         <div onClick={signInWithGoogle} className="button">
           Sign-in with google
-        </div> 
+        </div>
       </div>
     </div>
   );
