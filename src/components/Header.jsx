@@ -15,7 +15,8 @@ const Header = () => {
     const logout = async () => {
       await signOut(auth);
       navigate("/login");
-      setMyUser()
+      setMyUser();
+      localStorage.clear();
     };
 
   return (
