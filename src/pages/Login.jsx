@@ -5,6 +5,7 @@ import blog from "../assets/blok.png";
 import { signInWithGoogle, auth } from "../firebaseConfig";
 import { signInWithEmailAndPassword, signOut, getAuth} from "firebase/auth";
 import { userInfo } from "../App";
+import { logout } from "../utils/Function";
 const Login = () => {
 
 const { checkUser } = useContext(userInfo);
@@ -92,7 +93,7 @@ const { checkUser } = useContext(userInfo);
         <div onClick={signInWithGoogle} className="button">
           Sign-in with google
         </div>
-        
+        <button onClick={logout}>bas</button>
       </div>
     </div>
   );

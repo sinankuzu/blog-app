@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Card.css";
 import { useContent } from "../utils/Function";
+import { userInfo } from "../App";
 const Card = () => {
   useContent();
   const { contentList, isLoading, setIsLoading } = useContent();
-  
+  const {myUser} = useContext(userInfo)
 
 
   return (

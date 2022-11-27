@@ -1,42 +1,32 @@
-
-.card-container{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    justify-items: center;
+.card-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
 }
 
-.card{
-    background-color: white;
-    width: 400px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow:hidden;
-    height: 330px;
-    position: relative;
-    
-}
-
-.text-content{
-    width: 100%;
-    position: absolute;
-    bottom: 33px;
-    background-color: red;
-    padding: 10px;
-    height: 150px;
-             
-        
-
-}
-
-
-.card p{
- display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;  
+.card {
+  background-color: white;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   overflow: hidden;
-
+  height: 330px;
+  position: relative;
 }
 
+.text-content {
+  width: 100%;
+  position: absolute;
+  bottom: 33px;
+  background-color: red;
+  padding: 10px;
+  height: 150px;
+}
 
-
+.card p {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hiddenA;
+}
