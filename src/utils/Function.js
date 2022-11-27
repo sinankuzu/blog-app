@@ -8,6 +8,7 @@ export const addContent = (element) => {
   const yeniContentRef = push(contentRef);
 
   set(yeniContentRef, {
+    email: element.email,
     image: element.image,
     title: element.title,
     content: element.content,

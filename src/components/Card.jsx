@@ -14,12 +14,17 @@ const Card = () => {
 
         return (
           <div key={element.id} className="card">
-            <img width={400} src={element.image} alt="" />
+            <img src={element.image} alt="" />
             <div className="text-content">
               <h3>{element.title}</h3>
 
               <p>{element.content}</p>
             </div>
+            <div className="user-info">
+              <p>naber</p>
+              <p>sdaasdasd</p>
+            </div>
+            
           </div>
         );
       })} 

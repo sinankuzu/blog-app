@@ -3,12 +3,11 @@ import { useNavigate } from "react-router-dom";
 import "./Login.css";
 import blog from "../assets/blok.png";
 import { signInWithGoogle, auth } from "../firebaseConfig";
-import { signInWithEmailAndPassword, signOut, getAuth} from "firebase/auth";
+import { signInWithEmailAndPassword, signOut, getAuth } from "firebase/auth";
 import { userInfo } from "../App";
-import { logout } from "../utils/Function";
-const Login = () => {
 
-const { checkUser } = useContext(userInfo);
+const Login = () => {
+  const { checkUser, myUser, logout } = useContext(userInfo);
   const wrongPassword = useRef("");
   const wrongEmail = useRef("");
   const disabledUser = useRef("");
@@ -18,7 +17,9 @@ const { checkUser } = useContext(userInfo);
   const errorDisabled =
     "Firebase: Access to this account has been temporarily disabled due to many failed login attempts. You can immediately restore it by resetting your password or you can try again later. (auth/too-many-requests).";
   const errorEmail = "Firebase: Error (auth/user-not-found).";
-  const errorPassword = "Firebase: Error (auth/wrong-password)."
+  const errorPassword = "Firebase: Error (auth/wrong-password).";
+
+  // login function
   const login = async () => {
     try {
       const user = await signInWithEmailAndPassword(
@@ -31,25 +32,16 @@ const { checkUser } = useContext(userInfo);
       if (error.message === errorEmail) {
         wrongEmail.current = error.message;
       } else if (error.message === errorPassword) {
-        wrongPassword.current = error.message;}
-        else if(error.message === errorDisabled){
-          disabledUser.current = error.message;
-        }
-       else {
+        wrongPassword.current = error.message;
+      } else if (error.message === errorDisabled) {
+        disabledUser.current = error.message;
+      } else {
         console.log("calismadi");
       }
     }
   };
 
-
-// APP.JS E DEN CONTEXT ILE CEKILDI
-  // const checkUser = () => {
-  //     const auth = getAuth();
-  //     const user = auth.currentUser;
-  //     console.log(user)
-  // }
-
-    const submitle = async () => {
+  const submitle = async () => {
     await login();
 
     if (wrongEmail.current !== "") {
@@ -57,19 +49,17 @@ const { checkUser } = useContext(userInfo);
       wrongEmail.current = "";
     } else if (wrongPassword.current !== "") {
       console.log("sifre sikintili");
-      wrongPassword.current = ""
-      
-    }
-    else if(disabledUser.current !== ""){
-      console.log("engellendiniz bir kac dakika sonra tekrar deneyin")
+      wrongPassword.current = "";
+    } else if (disabledUser.current !== "") {
+      console.log("engellendiniz bir kac dakika sonra tekrar deneyin");
       disabledUser.current = "";
-    }
-      else{
-        navigate("/home")
-      }
-      checkUser()
-  };
+    } else {
+      await checkUser();
+      console.log(`giris basarili. Aktif kullanici: ${myUser}`);
 
+      navigate("/home");
+    }
+  };
 
   return (
     <div className="wrapper">

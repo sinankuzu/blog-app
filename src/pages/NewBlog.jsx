@@ -1,14 +1,18 @@
-import React, {useState} from 'react'
-import "./NewBlog.css"
-import blog from "../assets/blok.png"
-import { addContent } from '../utils/Function'
+import React, {useContext, useState} from 'react';
+import "./NewBlog.css";
+import blog from "../assets/blok.png";
+import { addContent } from '../utils/Function';
+import { userInfo } from '../App';
 
 const NewBlog = () => {
  const [title, setTitle] = useState("");
  const [image, setImage] = useState("");
  const [content, setContent] = useState("");
 
+ const {myUser} = useContext(userInfo);
+
  const initial = {
+  email: myUser.email,
   title: title,
   image:image,
   content:content

@@ -3,12 +3,20 @@ import cw from "../assets/cw.jpeg"
 import {useNavigate} from "react-router-dom"
 import "./Header.css"
 import {userInfo} from "../App"
-import {logout} from "../utils/Function" 
+import {  signOut } from "firebase/auth";
+import {  auth } from "../firebaseConfig";
 
 const Header = () => {
+  
   const [show, setShow] = useState(true)
-  const {myUser} = useContext(userInfo)
+  const {myUser, setMyUser} = useContext(userInfo)
     const navigate = useNavigate()
+    
+    const logout = async () => {
+      await signOut(auth);
+      navigate("/login");
+      setMyUser()
+    };
 
   return (
     <div className="header-container">
