@@ -29,7 +29,7 @@ const Header = () => {
         Profil Logo
         <div className="sub-menu">
           <ul>
-            <li>Profile</li>
+            <li onClick={()=>navigate("/profile")}>Profile</li>
             <li onClick={()=>navigate("/new-blog")}>New</li>
             {myUser ? <li onClick={logout}>Logout</li> : <li onClick={()=>navigate("/login")}>Login/Register</li>}
           </ul>

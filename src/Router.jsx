@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Login from "./pages/Login"
 import NewBlog from './pages/NewBlog';
 import Register from "./pages/Register";
+import Profile from "./pages/Profile";
 import {userInfo} from "./App"
 import PrivateRoute from './PrivateRoute/PrivateRoute';
 const Router = () => {
@@ -14,16 +15,19 @@ const Router = () => {
       <Header />
       <Routes>
         <Route path="/login" element={<Login />} />
-        <Route exact path="/home" element={<Home />} />
-
-        <Route
-          path="/new-blog"
-          element={
+        <Route exact path="/home" element={
+            <PrivateRoute>
+              <Home />
+            </PrivateRoute>
+          }
+        />
+        <Route path="/new-blog" element={
             <PrivateRoute>
               <NewBlog />
             </PrivateRoute>
           }
         />
+        <Route path="/profile" element={<Profile/>}/>
 
         <Route path="/register" element={<Register />} />
       </Routes>

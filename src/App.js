@@ -27,12 +27,12 @@ function App() {
         setMyUser(loggedInUser);
       }
   
-  console.log(myUser)
+  console.log(loggedAccessToken)
 
   console.log("naber")
   
     
-  }, [])
+  }, [myUser])
   
 
 
@@ -50,7 +50,7 @@ function App() {
 
   return (
     <userInfo.Provider value={{checkUser, myUser, setMyUser}}>
-      <Router/>
+       <Router/> 
       
     </userInfo.Provider>
   );
