@@ -1,0 +1,22 @@
+
+
+
+.profile-menu{
+ 
+    background-color: #8458B3
+}
+
+.profile-menu div{
+    width: 100%;
+    border-bottom: 3px solid white;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.profile-menu div:hover{
+    background-color: #ccb7e2;
+    transition: 0.5s;
+}

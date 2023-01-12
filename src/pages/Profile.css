@@ -1,0 +1,8 @@
+.profile-container{
+   height: 96.2vh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    
+    
+}
